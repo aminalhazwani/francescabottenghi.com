@@ -2,7 +2,7 @@
 layout: post
 title:  "Sample Post Title 2"
 excerpt: "Sample excerpt literally veniam deserunt flexitarian bicycle rights magna fanny pack pop-up shabby chic elit pork belly microdosing."
-categories: etwas
+categories: Etwas
 type: post
 ---
 
