@@ -13,7 +13,7 @@ layout: default
         {{ post.title }}
       </a>
     </h3>
-    <p class="mt0">{{ post.date | date: '%B %d, %Y' }} | {% for category in post.categories %}{{ category }}{% endfor %}</p>
+    <p class="mt0">{{ post.date | date: '%B %d, %Y' }} / {% for category in post.categories %}{{ category }}{% endfor %}</p>
   {% endif %}
 {% endfor %}
 <h2 class="f5 lh-title mt5 mb3 roboto ttu red">Publications</h2>
@@ -39,7 +39,7 @@ layout: default
       {% if post.link %}
         <div class="w-10-ns tc-ns">
           <a href="{{ post.link }}" target="_black">
-            <img src="/assets/baseline-open_in_new-24px.svg" alt="Open in new tab">
+            <img src="assets/baseline-open_in_new-24px.svg" alt="Open in new tab">
           </a>
         </div>
       {% endif %}
