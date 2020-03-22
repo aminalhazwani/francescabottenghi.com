@@ -1,8 +1,24 @@
-{%- include head.html -%}
-  <body class="playfair mw7 center ph3">
-    {%- include header.html -%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    {% if page.layout == "podcast" %}
+    <style>
+      :root {
+        --background: #{{ page.background }};
+        --foreground: #{{ page.foreground }};
+      }
+      .background { background-color: var(--background); }
+      .foreground { background-color: var(--foreground); }
+    </style>
+    {% endif %}
+  </head>
+  <body class="center inter lh-copy mw7 near-black sans-serif {% if page.layout == "podcast" %}background white{% endif %}">
     {{ content }}
-    {%- include footer.html -%}
-    {%- include ga.html -%}
   </body>
 </html>

@@ -2,50 +2,35 @@
 layout: default
 ---
 
-<p class="f4 f3-ns lh-copy mb0">
-  I am a dedicated <strong>Journalist</strong> with 7 years of experience creating original and engaging content for leading media groups, including <i>Condé Nast</i> and <i>Gruppo Editoriale L’Espresso</i>. <a class="black bb no-underline" href="/about/">Read more</a>
-</p>
-<h2 class="f5 lh-title mt5 mb3 roboto ttu red">Latest Posts</h2>
-{% for post in site.posts %}
-  {% if post.type == "post" %}
-    <h3 class="f3 mt0 mb2 lh-title">
-      <a class="black no-underline underline-hover" href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h3>
-    <p class="mt0">{{ post.date | date: '%B %d, %Y' }} / {% for category in post.categories %}{{ category }}{% endfor %}</p>
-  {% endif %}
-{% endfor %}
-<h2 class="f5 lh-title mt5 mb3 roboto ttu red">Publications</h2>
-{% for post in site.posts %}
-  {% if post.type == "publication" %}
-    <div class="flex-ns items-center mb3">
-      <div class="w-90-ns mb2 mb0-ns">
-        <h3 class="f3 mt0 mb2 lh-title">
-          {% if post.link %}
-            <a class="black no-underline underline-hover" href="{{ post.link }}" target="_black">
-              {{ post.title }}
-            </a>
-          {% else %}
-            {{ post.title }}
-          {% endif %}
-        </h3>
-        {% if post.excerpt %}
-        <p class="mv0 lh-copy">
-          {{ post.excerpt }}
-        </p>
-        {% endif %}
-      </div>
-      {% if post.link %}
-        <div class="w-10-ns tc-ns">
-          <a href="{{ post.link }}" target="_black">
-            <img src="assets/baseline-open_in_new-24px.svg" alt="Open in new tab">
+<section class="ph3 mt3 mb4">
+  <h1 class="f5 mt0 mb1">Francesca Bottenghi</h1>
+  <p class="mv0">
+    I am a dedicated Journalist with 9+ years of experience creating original and engaging content for leading media groups, including Condé Nast and Gruppo Editoriale L'Espresso.
+  </p>
+</section>
+<section class="cf mb3">
+  <h2 class="f5 mt0 mb1 ph3">Podcast editing</h2>
+  <p class="mt0 mb3 ph3">
+    Recently I have been working as a podcast editor for Storytel and Piano P. I have had the opportunity to contribute to series tackling foreign politics, tech and travels.
+  </p>
+  <div class="fl w-100 ph2">
+    {% for podcast in site.categories.podcast %}
+    {% if podcast.layout == "podcast" %}
+      <div class="fl w-50 ph2 mb3">
+        <img class="db mb1" src="{{ site.baseurl }}/assets/{{ podcast.cover }}" alt="">
+        <p class="f7 ma0 lh-title">
+          <a class="black" href="{{ podcast.url }}">
+            {{ podcast.title }}
           </a>
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
-{% endfor %}
-
-
-
+        </p>
+      </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<section class="ph3 mb4">
+  <h2 class="f5 mt0 mb1">Magazine</h2>
+  <p class="mt0 mb3">
+    I'm baby vice occupy pug sustainable, pabst health goth flannel af brooklyn. Keytar neutra photo booth, 90's PBR&B glossier brunch. Narwhal umami yuccie ethical, man bun af brunch wayfarers.
+  </p>
+</section>
