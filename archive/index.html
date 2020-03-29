@@ -1,0 +1,35 @@
+---
+layout: default
+title: Archivio
+---
+<section class="ph3 mt3 mb4">
+  <h2 class="f5 mt0 mb1">{{ page.title }}</h2>
+  <p class="mt0 mb3">
+    I'm baby vice occupy pug sustainable, pabst health goth flannel af brooklyn. Keytar neutra photo booth, 90's PBR&B glossier brunch. Narwhal umami yuccie ethical, man bun af brunch wayfarers.
+  </p>
+  {% for article in site.data.articles %}
+    {% assign year = article.date | date: "%Y" %}
+    {% if forloop.first == false %}
+      {% if year != date %}
+        </ul>
+      {% endif %}
+    {% endif %}
+    {% if year != date %}
+      <h3 class="f5 mt3 mb1">{{ year }}</h3>
+      {% assign date = year %}
+      <ul class="pl3 mv0">
+    {% endif %}
+      <li>
+        <p class="mv0">
+        {% if article.url %}
+          <a class="near-black" href="{{ article.url }}">{{ article.title }} &#8599;</a>, {{ article.publisher }}
+        {% else %}
+          {% assign months = "gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre" | split: "|" %}
+          {% assign m = article.date | date: "%-m" | minus: 1 %}
+          {% assign month = months[m] %}
+          {{ article.title }}, {{ article.publisher }} di {{ month }}
+        {% endif %}
+        </p>
+      </li>
+  {% endfor %}
+</section>
