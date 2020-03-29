@@ -9,13 +9,12 @@ layout: default
   </p>
 </section>
 <section class="cf mb3">
-  <h2 class="f5 mt0 mb1 ph3">Podcast editing</h2>
+  <h2 class="f5 mt0 mb1 ph3">Podcast</h2>
   <p class="mt0 mb3 ph3">
     Recently I have been working as a podcast editor for Storytel and Piano P. I have had the opportunity to contribute to series tackling foreign politics, tech and travels.
   </p>
   <div class="fl w-100 ph2">
     {% for podcast in site.categories.podcast %}
-    {% if podcast.layout == "podcast" %}
       <div class="fl w-50 ph2 mb3">
         <img class="db mb1" src="{{ site.baseurl }}/assets/{{ podcast.cover }}" alt="">
         <p class="f7 ma0 lh-title">
@@ -24,13 +23,48 @@ layout: default
           </a>
         </p>
       </div>
-    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<section class="cf mb3">
+  <h2 class="f5 mt0 mb1 ph3">Vogue Talents</h2>
+  <p class="mt0 mb3 ph3">
+    I'm baby vice occupy pug sustainable, pabst health goth flannel af brooklyn. Keytar neutra photo booth, 90's PBR&B glossier brunch. Narwhal umami yuccie ethical, man bun af brunch wayfarers.
+  </p>
+  <div class="fl w-100 ph2">
+    {% for talent in site.categories.talent %}
+      <div class="fl w-50 ph2 mb3">
+        <img class="db mb1" src="{{ site.baseurl }}/assets/{{ talent.cover }}" alt="">
+        <p class="f7 ma0 lh-title">
+          <a class="black" href="{{ talent.url }}">
+            {{ talent.title }}
+          </a>
+        </p>
+      </div>
     {% endfor %}
   </div>
 </section>
 <section class="ph3 mb4">
-  <h2 class="f5 mt0 mb1">Magazine</h2>
+  <h2 class="f5 mt0 mb1">Archivio</h2>
   <p class="mt0 mb3">
     I'm baby vice occupy pug sustainable, pabst health goth flannel af brooklyn. Keytar neutra photo booth, 90's PBR&B glossier brunch. Narwhal umami yuccie ethical, man bun af brunch wayfarers.
   </p>
+  <ul class="list pl0 mt0">
+    {% for article in site.data.articles %}
+      {% if article.show_in_home == "true" %}
+        <li class="bb b--light-silver flex mt2 pb2">
+          <p class="mv0 flex-auto">
+            {% if article.url %}
+              <a class="near-black" href="{{ article.url }}">{{ article.title }} &#8599;</a>
+            {% else %}
+              {{ article.title }}
+            {% endif %}<br>
+            <span class="gray">{{ article.publisher }}</span>
+          </p>
+          <span class="pl3">{{ article.date | date: "%Y" }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <a class="near-black" href="{{ site.baseurl }}/archive">Vedi archivio completo &#8594;</a>
 </section>
